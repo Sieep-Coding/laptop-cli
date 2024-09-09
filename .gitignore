@@ -1,0 +1,42 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output files and folders
+/laptop-donation-cli
+
+# Compiled object files and packages
+*.o
+*.a
+*.out
+
+# Dependency directories
+/vendor/
+/Godeps/
+
+# Go specific
+*.log
+*.cache
+*.tmp
+*.env
+
+# SQLite database file
+*.db
+*.sqlite
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
