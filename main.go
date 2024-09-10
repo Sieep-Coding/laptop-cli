@@ -1,10 +1,10 @@
 // main.go
+// main.go
 package main
 
 import (
 	"fmt"
 	"laptop-donation-cli/commands"
-	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -15,13 +15,19 @@ func main() {
 		Short: "Laptop Donation Tracker CLI",
 	}
 
-	// Registering Commands
+	// Register Commands
 	rootCmd.AddCommand(commands.AddLaptopCmd)
 	rootCmd.AddCommand(commands.ListLaptopsCmd)
 	rootCmd.AddCommand(commands.LogRepairCmd)
+	rootCmd.AddCommand(commands.UpdateLaptopStatusCmd)
+	rootCmd.AddCommand(commands.ListRepairsCmd)
+	rootCmd.AddCommand(commands.AddRecipientCmd)
+	rootCmd.AddCommand(commands.ListRecipientsCmd)
+	rootCmd.AddCommand(commands.DeleteLaptopCmd)
+	rootCmd.AddCommand(commands.DeleteRepairCmd)
 
+	// Execute the root command
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		fmt.Println("Error:", err)
 	}
 }
