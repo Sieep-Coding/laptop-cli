@@ -56,8 +56,6 @@ func removeRepair(laptopID int, issue, reasoningForRepair, technician string) {
 	database := db.InitDB()
 	defer database.Close()
 
-	fmt.Scanf()
-
 	removeRepairSQL := `DELETE INTO repairs (laptop_id, issue, technician, status)
 											WHERE laptop_id = ?`
 	statement, err := database.Prepare(removeRepairSQL)
