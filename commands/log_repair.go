@@ -61,12 +61,13 @@ var removeRepairCmd = &cobra.Command{
 		fmt.Scanln(&LaptopID)
 		fmt.Println("Reason for removal: ")
 		fmt.Scanln(&reasoningForRemoval)
+		removeRepair(LaptopID, reasoningForRemoval)
 	},
 }
 
 // A simple function to remove any repair when given the proper laptopID
 // This introduces a new variable called reason for removal
-func removeRepair(laptopID int, issue, reasoningForRemoval, technician string) {
+func removeRepair(laptopID int, reasoningForRemoval string) {
 	database := db.InitDB()
 	defer database.Close()
 
@@ -77,7 +78,7 @@ func removeRepair(laptopID int, issue, reasoningForRemoval, technician string) {
 		fmt.Println("Error preparing for laptop ID (and row) removal", err)
 		return
 	}
-	_, err = statement.Exec(laptopID, issue, technician)
+	_, err = statement.Exec(laptopID, reasoningForRemoval)
 	if err != nil {
 		fmt.Println("Error executing laptop removal query", err)
 	}

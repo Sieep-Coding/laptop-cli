@@ -24,7 +24,7 @@ func main() {
 	rootCmd.AddCommand(commands.ListRecipientsCmd)
 	rootCmd.AddCommand(commands.DeleteLaptopCmd)
 	rootCmd.AddCommand(commands.DeleteRepairCmd)
-	//rootCmd.AddCommand(commands.removeRepairSQL)
+	// rootCmd.AddCommand(commands.removeRepairCmd)
 
 	// Execute the root command
 	if err := rootCmd.Execute(); err != nil {
