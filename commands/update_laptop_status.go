@@ -34,12 +34,10 @@ func updateLaptopStatus(laptopID int, newStatus string) {
 		fmt.Println("Error preparing update statement:", err)
 		return
 	}
-
 	_, err = statement.Exec(newStatus, laptopID)
 	if err != nil {
 		fmt.Println("Error executing update statement:", err)
 		return
 	}
-
 	fmt.Println("Laptop status updated successfully!")
 }
