@@ -23,7 +23,7 @@ func main() {
 	rootCmd.AddCommand(commands.DeleteLaptopCmd)
 	rootCmd.AddCommand(commands.DeleteRepairCmd)
 	// rootCmd.AddCommand(commands.removeRepairCmd)
-	rootCmd.AddCommand(commands.AddPhoneCmd)
+	// rootCmd.AddCommand(commands.AddPhoneCmd)
 
 	// Execute the root command
 	if err := rootCmd.Execute(); err != nil {

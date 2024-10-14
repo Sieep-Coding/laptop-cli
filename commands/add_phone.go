@@ -1,4 +1,4 @@
-// commands/add_laptop.go
+// commands/add_phone.go
 package commands
 
 import (
@@ -27,7 +27,7 @@ func savePhone(donorName, specs string) {
 	database := db.InitDB()
 	defer database.Close()
 
-	insertLaptopSQL := `INSERT INTO phones (donor_name, specs, status, donation_date) 
+	insertLaptopSQL := `INSERT INTO phones (donor_name, specs, status, donation_date)
                         VALUES (?, ?, 'donated', DATE('now'));`
 	statement, err := database.Prepare(insertLaptopSQL)
 	if err != nil {
