@@ -14,8 +14,6 @@ func main() {
 		Short: "Laptop Donation Tracker CLI",
 	}
 
-	// Register Commands
-	rootCmd.AddCommand(commands.AddLaptopCmd)
 	rootCmd.AddCommand(commands.ListLaptopsCmd)
 	rootCmd.AddCommand(commands.LogRepairCmd)
 	rootCmd.AddCommand(commands.UpdateLaptopStatusCmd)
