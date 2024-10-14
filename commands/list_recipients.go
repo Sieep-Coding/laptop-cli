@@ -27,6 +27,7 @@ func listRecipients() {
 	}
 	defer rows.Close()
 
+	log.Printf("Printing...")
 	fmt.Println("ID | Name | Contact Info | Laptop ID | Received At")
 	for rows.Next() {
 		var id, laptopID int
@@ -36,7 +37,6 @@ func listRecipients() {
 			fmt.Println("Error scanning row:", err)
 			return
 		}
-		log.Printf("Printing...")
 		fmt.Printf("%d | %s | %s | %d | %s\n", id, name, contactInfo, laptopID, receivedAt)
 	}
 }

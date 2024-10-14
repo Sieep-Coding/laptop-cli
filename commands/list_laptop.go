@@ -28,13 +28,12 @@ func listLaptops() {
 	}
 	defer rows.Close()
 
+	log.Println("Printing...")
 	fmt.Println("ID | Donor | Specs | Status | Donation Date")
 	for rows.Next() {
 		var id int
 		var donorName, specs, status, donationDate string
 		rows.Scan(&id, &donorName, &specs, &status, &donationDate)
-		// log
-		log.Println("Printing...")
 		fmt.Printf("%d | %s | %s | %s | %s\n", id, donorName, specs, status, donationDate)
 	}
 }

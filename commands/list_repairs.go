@@ -30,6 +30,7 @@ func listRepairs() {
 	}
 	defer rows.Close()
 
+	log.Println("Printing...")
 	fmt.Println("ID | Laptop ID | Issue | Technician | Status | Reason For Repair")
 	for rows.Next() {
 		var id, laptopID int
@@ -39,7 +40,6 @@ func listRepairs() {
 			fmt.Println("Error scanning row:", err)
 			return
 		}
-		log.Print("Printing...")
 		fmt.Printf("%d | %d | %s | %s | %s | %s \n", id, laptopID, issue, technician, status, reasoningForRepair)
 	}
 }
