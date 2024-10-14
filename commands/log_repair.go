@@ -50,37 +50,37 @@ func logRepair(laptopID int, issue, technician string) {
 	fmt.Println("Repair logged successfully!")
 }
 
-var removeRepairCmd = &cobra.Command{
-	Use:   "remove-repair",
-	Short: "remove a repair from the database",
+// var removeRepairCmd = &cobra.Command{
+// 	Use:   "remove-repair",
+// 	Short: "remove a repair from the database",
 
-	Run: func(cmd *cobra.Command, args []string) {
-		var LaptopID int
-		var reasoningForRemoval string
-		fmt.Println("LaptopID: ")
-		fmt.Scanln(&LaptopID)
-		fmt.Println("Reason for removal: ")
-		fmt.Scanln(&reasoningForRemoval)
-		removeRepair(LaptopID, reasoningForRemoval)
-	},
-}
+// 	Run: func(cmd *cobra.Command, args []string) {
+// 		var LaptopID int
+// 		var reasoningForRemoval string
+// 		fmt.Println("LaptopID: ")
+// 		fmt.Scanln(&LaptopID)
+// 		fmt.Println("Reason for removal: ")
+// 		fmt.Scanln(&reasoningForRemoval)
+// 		removeRepair(LaptopID, reasoningForRemoval)
+// 	},
+// }
 
 // A simple function to remove any repair when given the proper laptopID
 // This introduces a new variable called reason for removal
-func removeRepair(laptopID int, reasoningForRemoval string) {
-	database := db.InitDB()
-	defer database.Close()
+// func removeRepair(laptopID int, reasoningForRemoval string) {
+// 	database := db.InitDB()
+// 	defer database.Close()
 
-	removeRepairSQL := `DELETE INTO repairs (laptop_id, issue, technician, status)
-											WHERE laptop_id = ?`
-	statement, err := database.Prepare(removeRepairSQL)
-	if err != nil {
-		fmt.Println("Error preparing for laptop ID (and row) removal", err)
-		return
-	}
-	_, err = statement.Exec(laptopID, reasoningForRemoval)
-	if err != nil {
-		fmt.Println("Error executing laptop removal query", err)
-	}
-	fmt.Println("Removed repair successfully!")
-}
+// 	removeRepairSQL := `DELETE INTO repairs (laptop_id, issue, technician, status)
+// 											WHERE laptop_id = ?`
+// 	statement, err := database.Prepare(removeRepairSQL)
+// 	if err != nil {
+// 		fmt.Println("Error preparing for laptop ID (and row) removal", err)
+// 		return
+// 	}
+// 	_, err = statement.Exec(laptopID, reasoningForRemoval)
+// 	if err != nil {
+// 		fmt.Println("Error executing laptop removal query", err)
+// 	}
+// 	fmt.Println("Removed repair successfully!")
+// }
