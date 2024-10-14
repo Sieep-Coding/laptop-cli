@@ -38,6 +38,6 @@ func listRepairs() {
 			fmt.Println("Error scanning row:", err)
 			return
 		}
-		fmt.Printf("%d | %d | %s | %s | %s | %s\n", id, laptopID, issue, technician, status, reasoningForRepair)
+		fmt.Printf("%d | %d | %s | %s | %s | %s \n", id, laptopID, issue, technician, status, reasoningForRepair)
 	}
 }

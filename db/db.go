@@ -8,11 +8,13 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-// +--------------------------------------------+
-// | laptopID = PRIMARY KEY                     |
-// | All other tables use this as a FOREIGN KEY |
-// +--------------------------------------------+
+/*
++--------------------------------------------+
+| laptopID = PRIMARY KEY                     |
+| All other tables use this as a FOREIGN KEY |
 
+	+--------------------------------------------+
+*/
 func InitDB() *sql.DB {
 	db, err := sql.Open("sqlite3", "./laptop_tracker.db")
 	if err != nil {
