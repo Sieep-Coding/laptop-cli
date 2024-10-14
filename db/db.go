@@ -64,5 +64,17 @@ func InitDB() *sql.DB {
 		log.Fatal("Error creating recipients table:", err)
 	}
 
+	createPhonesTable := `
+	CREATE TABLE IF NOT EXISTS phones (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		donor_name TEXT,
+		specs TEXT,
+		status TEXT,
+		donation_date TEXT 
+	);`
+	_, err = db.Exec(createPhonesTable)
+	if err != nil {
+		log.Fatal("Error creating phones table", err)
+	}
 	return db
 }
