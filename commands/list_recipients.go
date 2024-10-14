@@ -3,6 +3,7 @@ package commands
 import (
 	"fmt"
 	"laptop-donation-cli/db"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -35,6 +36,7 @@ func listRecipients() {
 			fmt.Println("Error scanning row:", err)
 			return
 		}
+		log.Printf("Printing...")
 		fmt.Printf("%d | %s | %s | %d | %s\n", id, name, contactInfo, laptopID, receivedAt)
 	}
 }

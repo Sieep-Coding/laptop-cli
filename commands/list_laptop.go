@@ -4,6 +4,7 @@ package commands
 import (
 	"fmt"
 	"laptop-donation-cli/db"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -32,6 +33,8 @@ func listLaptops() {
 		var id int
 		var donorName, specs, status, donationDate string
 		rows.Scan(&id, &donorName, &specs, &status, &donationDate)
+		// log
+		log.Println("Printing...")
 		fmt.Printf("%d | %s | %s | %s | %s\n", id, donorName, specs, status, donationDate)
 	}
 }
