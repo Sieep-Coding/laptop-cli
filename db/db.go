@@ -65,6 +65,19 @@ func InitDB() *sql.DB {
 		log.Fatal("Error creating recipients table:", err)
 	}
 
+	createDesktopsTable := `
+	    CREATE TABLE IF NOT EXISTS recipients (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        contact_info TEXT,
+        laptop_id INTEGER,
+        received_at TEXT,
+        FOREIGN KEY(laptop_id) REFERENCES laptops(id)
+    );`
+	_, err = db.Exec(createDesktopsTable)
+	if err != nil {
+		log.Fatal("Error creating desktop table:", err)
+	}
 	// createPhonesTable := `
 	// CREATE TABLE IF NOT EXISTS phones (
 	// 	id INTEGER PRIMARY KEY AUTOINCREMENT,
