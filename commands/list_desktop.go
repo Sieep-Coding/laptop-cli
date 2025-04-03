@@ -29,11 +29,12 @@ func listDesktops() {
 
 	log.Println("Printing...")
 	fmt.Println("ID | Donor | Specs | Status | Donation Date")
+	fmt.Println("---|-------|-------|--------|")
 
 	for rows.Next() {
 		var id int
 		var donorName, specs, status, donation_date string
 		rows.Scan(&id, &donorName, &specs, &status, &donation_date)
-		fmt.Printf("%d | %s | %s | %s | %s\n", id, donorName, specs, status, donation_date)
+		fmt.Printf("%d  | %s  | %s  | %s  | %s\n", id, donorName, specs, status, donation_date)
 	}
 }

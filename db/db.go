@@ -39,10 +39,11 @@ func InitDB() *sql.DB {
     CREATE TABLE IF NOT EXISTS repairs (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         laptop_id INTEGER,
+		desktop_id INTEGER,
         issue TEXT,
         technician TEXT,
         status TEXT,
-				reasoningForRepair TEXT,
+		reasoningForRepair TEXT,
         FOREIGN KEY(laptop_id) REFERENCES laptops(id)
 		FOREIGN KEY (desktop_id) REFERENCES desktops(id)
     );`
@@ -58,6 +59,7 @@ func InitDB() *sql.DB {
         name TEXT,
         contact_info TEXT,
         laptop_id INTEGER,
+		desktop_id INTEGER,
         received_at TEXT,
         FOREIGN KEY(laptop_id) REFERENCES laptops(id)
 		FOREIGN KEY (desktop_id) REFERENCES desktops(id)
@@ -70,7 +72,6 @@ func InitDB() *sql.DB {
 	createDesktopsTable := `
 	    CREATE TABLE IF NOT EXISTS desktops (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        desktop_id INTEGER,
         donor_name TEXT,
         specs TEXT,
         status TEXT,

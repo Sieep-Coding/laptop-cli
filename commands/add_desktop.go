@@ -26,7 +26,7 @@ func saveDesktop(donorName, specs string) {
 	database := db.InitDB()
 	defer database.Close()
 
-	insertDesktopSQL := `INSERT INTO desktop (donor_name, specs, status, donation_date)
+	insertDesktopSQL := `INSERT INTO desktops (donor_name, specs, status, donation_date)
                         VALUES (?, ?, 'donated', DATE('now'));`
 	stmt, err := database.Prepare(insertDesktopSQL)
 	if err != nil {
