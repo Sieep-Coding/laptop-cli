@@ -44,6 +44,7 @@ func InitDB() *sql.DB {
         status TEXT,
 				reasoningForRepair TEXT,
         FOREIGN KEY(laptop_id) REFERENCES laptops(id)
+		FOREIGN KEY (desktop_id) REFERENCES desktops(id)
     );`
 	_, err = db.Exec(createRepairsTable)
 	if err != nil {
@@ -59,6 +60,7 @@ func InitDB() *sql.DB {
         laptop_id INTEGER,
         received_at TEXT,
         FOREIGN KEY(laptop_id) REFERENCES laptops(id)
+		FOREIGN KEY (desktop_id) REFERENCES desktops(id)
     );`
 	_, err = db.Exec(createRecipientsTable)
 	if err != nil {
@@ -66,13 +68,13 @@ func InitDB() *sql.DB {
 	}
 
 	createDesktopsTable := `
-	    CREATE TABLE IF NOT EXISTS recipients (
+	    CREATE TABLE IF NOT EXISTS desktops (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        contact_info TEXT,
-        laptop_id INTEGER,
-        received_at TEXT,
-        FOREIGN KEY(laptop_id) REFERENCES laptops(id)
+        desktop_id INTEGER,
+        donor_name TEXT,
+        specs TEXT,
+        status TEXT,
+        donation_date TEXT
     );`
 	_, err = db.Exec(createDesktopsTable)
 	if err != nil {

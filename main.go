@@ -24,6 +24,7 @@ func main() {
 	rootCmd.AddCommand(commands.DeleteRepairCmd)
 
 	rootCmd.AddCommand(commands.AddDesktopCmd)
+	rootCmd.AddCommand(commands.ListDesktopsCmd)
 	// rootCmd.AddCommand(commands.removeRepairCmd)
 	// rootCmd.AddCommand(commands.AddPhoneCmd)
 
