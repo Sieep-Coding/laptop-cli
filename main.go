@@ -14,17 +14,25 @@ func main() {
 		Short: "Laptop Donation Tracker CLI",
 	}
 
+	//laptop
 	rootCmd.AddCommand(commands.ListLaptopsCmd)
-	rootCmd.AddCommand(commands.LogRepairCmd)
+	rootCmd.AddCommand(commands.DeleteLaptopCmd)
 	rootCmd.AddCommand(commands.UpdateLaptopStatusCmd)
+
+	//repairs
+	rootCmd.AddCommand(commands.DeleteRepairCmd)
+	rootCmd.AddCommand(commands.LogRepairCmd)
 	rootCmd.AddCommand(commands.ListRepairsCmd)
+
+	//recipients
 	rootCmd.AddCommand(commands.AddRecipientCmd)
 	rootCmd.AddCommand(commands.ListRecipientsCmd)
-	rootCmd.AddCommand(commands.DeleteLaptopCmd)
-	rootCmd.AddCommand(commands.DeleteRepairCmd)
 
+	//desktop
 	rootCmd.AddCommand(commands.AddDesktopCmd)
 	rootCmd.AddCommand(commands.ListDesktopsCmd)
+	rootCmd.AddCommand(commands.UpdateDesktopStatusCmd)
+
 	// rootCmd.AddCommand(commands.removeRepairCmd)
 	// rootCmd.AddCommand(commands.AddPhoneCmd)
 
