@@ -14,7 +14,7 @@ var UpdateDesktopStatusCmd = &cobra.Command{
 		var desktopID int
 		var newStatus string
 
-		fmt.Print("Desktop ID: ")
+		fmt.Print("Laptop ID: ")
 		fmt.Scanln(&desktopID)
 
 		fmt.Print("New Status: ")
